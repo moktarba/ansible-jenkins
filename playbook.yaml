@@ -1,0 +1,21 @@
+---
+- hosts: tomcat_server
+  gather_facts: yes
+  tasks:
+
+  - name: Copy file with owner and permissions
+    ansible.builtin.copy:
+      src: /home/vagrant/knote/
+      dest: /tmp/kube2/
+
+  - name: create mongodb
+    ansible.builtin.shell: kubectl apply -f /tmp/kube2/mongo.yml
+
+  - name: create service of mongdb
+    ansible.builtin.shell: kubectl apply -f /tmp/kube2/mongo.service.yml
+
+  - name: create application knote
+    ansible.builtin.shell: kubectl apply -f /tmp/kube2/knote.yml
+
+  - name: create serivce for knote
+    ansible.builtin.shell: kubectl apply -f /tmp/kube2/knote.service.yml
