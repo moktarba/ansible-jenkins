@@ -5,17 +5,17 @@
 
   - name: Copy file with owner and permissions
     ansible.builtin.copy:
-      src: /home/vagrant/knote/
-      dest: /tmp/kube2/
+      src: /var/lib/jenkins/workspace/ansible-jenkins/
+      dest: /tmp/kube/
 
   - name: create mongodb
-    ansible.builtin.shell: kubectl apply -f /tmp/kube2/mongo.yml
+    ansible.builtin.shell: kubectl apply -f /tmp/kube/mongo.yml 
 
   - name: create service of mongdb
-    ansible.builtin.shell: kubectl apply -f /tmp/kube2/mongo.service.yml
+    ansible.builtin.shell: kubectl apply -f /tmp/kube/mongo.service.yml 
 
   - name: create application knote
-    ansible.builtin.shell: kubectl apply -f /tmp/kube2/knote.yml
+    ansible.builtin.shell: kubectl apply -f /tmp/kube/knote.yml 
 
-  - name: create serivce for knote
-    ansible.builtin.shell: kubectl apply -f /tmp/kube2/knote.service.yml
+  - name: create serivce for knote 
+    ansible.builtin.shell: kubectl apply -f /tmp/kube/knote.service.yml
