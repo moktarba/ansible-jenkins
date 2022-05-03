@@ -10,7 +10,7 @@
 
   - name: Copy file with owner and permissions
     ansible.builtin.copy:
-      src: /var/lib/jenkins/workspace/ansible-jenkins/mongo.service.yaml
+      src: /var/lib/jenkins/workspace/ansible-jenkins/mongo-service.yaml
       dest: /tmp/kube/
       
   - name: Copy file with owner and permissions
