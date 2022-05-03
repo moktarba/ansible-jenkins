@@ -5,22 +5,22 @@
 
   - name: Copy file with owner and permissions
     ansible.builtin.copy:
-      src: /var/lib/jenkins/workspace/ansible-jenkins/mongo.yaml
+      src: /var/lib/jenkins/workspace/${JOB_NAME}/mongo.yaml
       dest: /tmp/kube/
 
   - name: Copy file with owner and permissions
     ansible.builtin.copy:
-      src: /var/lib/jenkins/workspace/ansible-jenkins/mongo-service.yaml
+      src: /var/lib/jenkins/workspace/${JOB_NAME}/mongo-service.yaml
       dest: /tmp/kube/
       
   - name: Copy file with owner and permissions
     ansible.builtin.copy:
-      src: /var/lib/jenkins/workspace/ansible-jenkins/knote.yaml
+      src: /var/lib/jenkins/workspace/${JOB_NAME}/knote.yaml
       dest: /tmp/kube/
       
   - name: Copy file with owner and permissions
     ansible.builtin.copy:
-      src: /var/lib/jenkins/workspace/ansible-jenkins/knote-service.yaml
+      src: /var/lib/jenkins/workspace/${JOB_NAME}/knote-service.yaml
       dest: /tmp/kube/
   - name: create mongodb
     ansible.builtin.shell: kubectl apply -f /tmp/kube/mongo.yaml 
